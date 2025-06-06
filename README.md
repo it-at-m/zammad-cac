@@ -1,9 +1,13 @@
-# Hinweise
+Exporter for the Zammad object types Trigger, Role and Group. 
 
-1. Login mit oc-tool:
-    1. K-Cluster: https://oauth-openshift.apps.capk.muenchen.de/oauth/token/display
-    1. P-Cluster: https://oauth-openshift.apps.capp.muenchen.de/oauth/token/display
+* Remote connection to Openshift via OC-Tools command line to the correct project / namespace
+* Find out the current rails server pod name via "oc get pods"
+* Execute Rails command via "oc rsh <railsserver-pod> rails runner ..." to output objects or obtain the names of objects referenced by ID
+* Replace IDs via search/replace with lookup functions + names
+* Save as a local file
+
+# Usage
 
 ```bash
-./cac-trigger-exporter.sh dbs-zammad-integration "T1330_Gruppenzuweisung für Anliegenarten KVR-Studentenbereich und Zuweisung an KVR-V/51-Studentenbereich-IG"
+./cac-trigger-exporter.sh <zammad-namespace> <trigger-name>
 ```
