@@ -33,8 +33,8 @@ rm rails_output.txt
 # Group_IDs für Source- und Target-Group herausparsen und Namen heraussuchen
 
 triggerWithoutWhitespace=$(tr -d '\n' < trigger.ruby)
-SOURCE_GROUP_ID_REGEX='"ticket\.group_id"=>\s*\{"operator"=>\s*"is",\s*"value"=>\s*\[([0-9]+)\]'
-TARGET_GROUP_ID_REGEX='"perform"=>\s*\{"ticket\.group_id"=>\s*\{"value"=>\s*([0-9]+)\}\}'
+SOURCE_GROUP_ID_REGEX='"ticket\.group_id"=>[[:space:]]*\{"operator"=>[[:space:]]*"is",[[:space:]]*"value"=>[[:space:]]*\[([0-9]+)\]'
+TARGET_GROUP_ID_REGEX='"perform"=>[[:space:]]*\{"ticket\.group_id"=>[[:space:]]*\{"value"=>[[:space:]]*([0-9]+)\}\}'
 
 if [[ $triggerWithoutWhitespace =~ $SOURCE_GROUP_ID_REGEX ]]
 then
