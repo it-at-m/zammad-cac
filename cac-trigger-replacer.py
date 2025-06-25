@@ -9,7 +9,7 @@ def ersetze_und_speichere(dateiname_alt, dateiname_neu, ausgangsgruppe, zielgrup
 
     # Ersetzung 1
     fileContent = re.sub(
-        r'\"operator\"\s*=>\s*\"is\",\s*\"value\"\s*=>\s*\[[0-9]+\]',
+        r'\"operator\"\s*=>\s*\"is\",\s*\"value\"\s*=>\s*\[?"?[0-9]+\]?"?',
         f'"operator"=>"is", "value"=>lookup_group_id_or_default("{ausgangsgruppe}")',
         fileContent,
         re.M
@@ -17,7 +17,7 @@ def ersetze_und_speichere(dateiname_alt, dateiname_neu, ausgangsgruppe, zielgrup
 
     # Ersetzung 2
     fileContent = re.sub(
-        r'\"perform\"=>\s*{\"ticket\.group_id\"\s*=>\s*\{\"value\"=>\s*[0-9]+\}',
+        r'\"perform\"=>\s*{\"ticket\.group_id\"\s*=>\s*\{\"value\"=>\s*\[?"?[0-9]+\]?"?\}',
         f'"perform"=>{{"ticket.group_id"=>{{"value"=>lookup_group_id_or_default("{zielgruppe}")}}',
         fileContent,
         re.M
